@@ -1,7 +1,7 @@
 module LinksHelper
 
   # Simple method to create icon buttons
-  def icon_link_to text, path, icon, reverse=false params = {}
+  def icon_link_to text, path, icon, reverse=false, params = {}
     icon = reverse ? icon_right_link(text, icon) : icon_link(text, icon)
     link_to path, params do
       icon

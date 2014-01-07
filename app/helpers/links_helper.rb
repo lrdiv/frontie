@@ -1,8 +1,8 @@
 module LinksHelper
 
   # Simple method to create icon buttons
-  def icon_link_to text, path, icon, params = {}
-    icon = icon_link(text, icon)
+  def icon_link_to text, path, icon, reverse=false params = {}
+    icon = reverse ? icon_right_link(text, icon) : icon_link(text, icon)
     link_to path, params do
       icon
     end
@@ -18,6 +18,10 @@ module LinksHelper
   # This actually creates the content within the button including the icons
   def icon_link text, icon
     "#{content_tag(:i, '', :class => "#{icon}")} #{text}".html_safe
+  end
+
+  def icon_right_link text, icon
+    "#{text} #{content_tag(:i, '', :class => "#{icon}")}".html_safe
   end
 
 end
